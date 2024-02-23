@@ -44,7 +44,7 @@
                         </form>
                     </td>
                     <td>
-                        <form action="delete-penjualan.php" method="PSOT" onsubmit="return konfimasi(thist)">
+                        <form action="delete-penjualan.php" method="POST" onsubmit="return konfirmasi(this)">
                             <input type="hidden" name="id" value='<?= $penjualan["id"] ?>'>
                             <button type="submit">Delete</button>
                         </form>
