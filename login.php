@@ -8,26 +8,21 @@
 </head>
 
 <body>
-    <div class="box-login">
+    <div class="wrapper">
         <form action="validasi.php" method="POST">
             <h1>Selamat Datang!</h1>
-            <table>
-                <tr>
-                    <td>Username</td>
-                    <td><input type="text" name="username"></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="password"></td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button type="submit">LOGIN</button>
-                        <button type="reset">CLEAR</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="username" require>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="password">
+                <i class='bx bx-lock'></i>
+            </div>
+            <button type="submit" class="btn">login</button>
+            <button type="reset" class="btn">clear</button>
+    </div>
+    </form>
     </div>
 </body>
 
