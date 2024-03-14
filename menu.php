@@ -7,29 +7,47 @@ if (!array_key_exists("username", $_SESSION)) {
 }
 ?>
 
-<nav>
-    <ul>
-        <li><a href="home.php">HOME</a></li>
-        <li>MASTER
-            <ul>
 
-                <?php if ($_SESSION["level"] == "admin") : ?>
-                    <li><a href="user.php">User</a></li>
-                <?php endif ?>
-                <li><a href="barang.php">Barang</a></li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+    <!-- Isi navbar di sini -->
+
+
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.php">HOME</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        MASTER
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php if (isset($_SESSION["level"]) && $_SESSION["level"] == "admin") : ?>
+                            <li><a class="dropdown-item" href="user.php">User</a></li>
+                        <?php endif ?>
+                        <li><a class="dropdown-item" href="barang.php">Barang</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        TRANSAKSI
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="penjualan.php">Penjualan</a></li>
+                        <li><a class="dropdown-item" href="pembelian.php">Pembelian</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Selamat datang, <?= $_SESSION["username"] ?>!
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="profil.php">Profil</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Log out</a></li>
+                    </ul>
+                </li>
             </ul>
-        </li>
-        <li>TRANSAKSI
-            <ul>
-                <li><a href="penjualan.php">Penjualan</a></li>
-                <li><a href="pembelian.php">Pembelian</a></li>
-            </ul>
-        </li>
-        <li>Selamat datang, <?= $_SESSION["username"] ?>!
-            <ul>
-                <li><a href="profil.php">Profil</a></li>
-                <li><a href="logout.php">Log out</a></li>
-            </ul>
-        </li>
-    </ul>
+        </div>
+    </div>
 </nav>
