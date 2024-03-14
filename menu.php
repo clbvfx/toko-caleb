@@ -14,11 +14,11 @@ if (!array_key_exists("username", $_SESSION)) {
 
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="home.php">HOME</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown mx-3">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         MASTER
                     </a>
