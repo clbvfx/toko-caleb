@@ -1,0 +1,53 @@
+/* Warna latar belakang dan teks navbar */
+.navbar-custom {
+    background-color: #24252A;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #000000;
+    font-weight: 500;
+}
+
+/* Warna teks navbar saat hover */
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #0088a9;
+}
+
+/* Warna teks brand navbar */
+.navbar-custom .navbar-brand {
+    color: #000000;
+    font-weight: 700;
+}
+
+/* Warna teks brand navbar saat hover */
+.navbar-custom .navbar-brand:hover {
+    color: #0088a9;
+}
+
+/* Teks di tengah navbar */
+.navbar-custom .navbar-nav,
+.navbar-custom .navbar-nav .nav-link,
+.navbar-custom .navbar-brand {
+    text-align: center;
+}
+
+/* Padding untuk navbar */
+.navbar-custom .navbar-nav {
+    padding: 0 20px;
+}
+
+/* Padding untuk link di navbar */
+.navbar-custom .navbar-nav .nav-link {
+    padding: 15px 20px;
+}
+
+/* Padding untuk dropdown di navbar */
+.navbar-custom .dropdown-menu {
+    padding: 10px;
+}
+
+/* Warna latar belakang dan teks dropdown saat hover */
+.navbar-custom .dropdown-item:hover {
+    background-color: #0088a9;
+    color: #242020;
+}
