@@ -4,7 +4,83 @@
 <head>
     <title>Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="menu.css">
+    <style>
+        body {
+            padding: 20px;
+            background-size: cover;
+            color: white;
+        }
+
+        .profile-container {
+            width: 70%;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 110%;
+            border-collapse: collapse;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid white;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            width: 50%;
+            max-width: 500px;
+            /* Ukuran maksimum lebar form */
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* Efek bayangan agar form terlihat menonjol */
+        }
+    </style>
 </head>
 
 <body>
@@ -20,7 +96,7 @@
     $user = mysqli_fetch_array($query);
     ?>
 
-    <div>
+    <div class="profile-container">
         <form action="update-profil.php" method="POST">
             <h1>Profil</h1>
 
@@ -50,8 +126,5 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-</html>
-</body>
 
 </html>

@@ -5,6 +5,49 @@
     <title>Penjualan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="menu.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 0 auto;
+            background-color: #e9ecef;
+        }
+
+        th,
+        td,
+        h1 {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,7 +63,7 @@
         <form action="new-penjualan.php" method="GET">
             <button type="submit">Tambah</button>
         </form>
-        <table border="1">
+        <table>
             <tr>
                 <th>No.</th>
                 <th>Nama Barang</th>
@@ -59,7 +102,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function konfirmasi(form) {
-            FormData = new FormData(form);
+            formData = new FormData(form);
             id = formData.get("id");
             return confirm(`Hapus penjualan '${id}'?`);
         }
