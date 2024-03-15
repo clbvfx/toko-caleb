@@ -2,34 +2,25 @@
 
 require "koneksi.php";
 
-session_start();
+// id, new_password, confirm_password diambil dari profil.php
+$id = $_POST["id"];
+// hapus (trim) karakter spasi dari password baru
+$new_password = trim($_POST["new_password"]);
+$confirm_password = trim($_POST["confirm_password"]);
 
-if ($_POST["id"] == $_SESSION["id"]) {
-    echo "Tidak bisa edit user yang sedang aktif";
+// bandingkan (strcmp) new password dan konfirmasinya
+if (strcmp($new_password, $confirm_password) != 0) {
+    echo "Password baru dan konfirmasinya tidak sama";
     exit;
 }
 
+$password = password_hash($new_password, PASSWORD_DEFAULT);
 
-$id = $_POST["id"];
-$username = $_POST["username"];
-$level = $_POST["level"];
-
-
-$password = $_POST["old_password"];
-
-
-$new_password = trim($_POST["password"]);
-if (strlen($new_password) > 0) {
-
-
-    $password = password_hash($new_password, PASSWORD_DEFAULT);
-}
-
-$sql = "UPDATE user SET username = '$username', password = '$password', level = '$level' WHERE id = '$id'";
+$sql = "UPDATE user SET password = '$password' WHERE id = '$id'";
 mysqli_query($koneksi, $sql);
 
 if (mysqli_error($koneksi)) {
     echo mysqli_error($koneksi);
 } else {
-    header("location: user.php");
+    header("location: home.php");
 }
