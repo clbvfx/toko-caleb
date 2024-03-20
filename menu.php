@@ -23,7 +23,7 @@ if (!array_key_exists("username", $_SESSION)) {
                         MASTER
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <?php if (isset($_SESSION["level"]) && $_SESSION["level"] == "admin") : ?>
+                        <?php if (isset($_SESSION["level"]) && $_SESSION["level"] == "BOS") : ?>
                             <li><a class="dropdown-item" href="user.php">User</a></li>
                         <?php endif ?>
                         <li><a class="dropdown-item" href="barang.php">Barang</a></li>

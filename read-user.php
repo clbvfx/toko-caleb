@@ -10,7 +10,7 @@
     <?php include "menu.php"; ?>
 
     <?php
-    if ($_SESSION["level"] != "admin") {
+    if ($_SESSION["level"] != "BOS") {
 
         echo "Anda tidak dapat mengakses halaman ini";
         exit;

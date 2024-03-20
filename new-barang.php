@@ -10,7 +10,7 @@
     <?php include "menu.php"; ?>
 
     <?php
-    if ($_SESSION["level"] != "admin" && $_SESSION["level"] != "logistik") {
+    if ($_SESSION["level"] != "BOS" && $_SESSION["level"] != "logistik") {
 
         echo "Anda tidak dapat mengakses halaman ini";
         exit;
