@@ -4,24 +4,33 @@
 <head>
     <title>New Barang</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* CSS untuk membuat tabel berukuran sedang */
+        .center-table {
+            margin: 0 auto;
+            /* Margin kiri dan kanan auto untuk membuat tabel berada di tengah */
+            width: 50%;
+            /* Lebar tabel */
+        }
+    </style>
 </head>
 
 <body>
     <?php include "menu.php"; ?>
 
     <?php
-    if ($_SESSION["level"] != "BOS" && $_SESSION["level"] != "logistik") {
-
+    if ($_SESSION["level"] != "admin" && $_SESSION["level"] != "logistik") {
         echo "Anda tidak dapat mengakses halaman ini";
         exit;
     }
     ?>
 
-    <div>
-
+    <div class="container">
         <form action="create-barang.php" method="POST">
-            <h1>Tambah Barang</h1>
-            <table>
+            <div class="text-center">
+                <h1>Tambah Barang</h1>
+            </div>
+            <table class="center-table">
                 <tr>
                     <td>Nama</td>
                     <td><input type="text" name="nama"></td>
@@ -29,7 +38,7 @@
                 <tr>
                     <td>Kategori</td>
                     <td>
-                        <select name="kategori">
+                        <select name="kategori" class="form-select">
                             <option value="makanan">makanan</option>
                             <option value="minuman">minuman</option>
                         </select>
@@ -49,8 +58,8 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button type="submit">SIMPAN</button>
-                        <button type="reset">RESET</button>
+                        <button type="submit" class="btn btn-primary">SIMPAN</button>
+                        <button type="reset" class="btn btn-secondary">RESET</button>
                     </td>
                 </tr>
             </table>

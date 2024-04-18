@@ -2,37 +2,54 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="menu.css">
     <style>
         body {
             padding: 20px;
-            background-color: #f8f9fa;
+            background-size: cover;
+            color: white;
+        }
+
+        .profile-container {
+            width: 70%;
+            margin: 0 auto;
+            background-color: transparent;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
         }
 
         table {
+            width: 100%;
             border-collapse: collapse;
-            width: 50%;
-            margin: 0 auto;
-            background-color: #f2f2f2;
+            color: white;
         }
 
         th,
-        td,
-        h1 {
-            border: 1px solid #ccc;
+        td {
+            border: 1px solid white;
             padding: 8px;
-            text-align: center;
-            /* Menengahkan teks */
+            background-color: #363636;
+            /* Warna latar belakang */
+            color: white;
+            /* Warna teks */
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #212121;
+            /* Warna latar belakang header */
         }
 
-        form {
-            text-align: center;
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
         }
 
         button {
@@ -48,32 +65,59 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            width: 50%;
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
     </style>
-
-
 </head>
 
 <body>
-    <?php
-    include "menu.php";
+    <?php include "menu.php"; ?>
 
-    if ($_SESSION["level"] != "BOS") {
+    <?php
+    if ($_SESSION["level"] != "admin") {
+        // jika di sesi ini levelnya bukan admin, akses ditolak
         echo "Anda tidak dapat mengakses halaman ini";
         exit;
     }
 
     require "koneksi.php";
 
+    // cari semua user dari database
     $sql = "SELECT * FROM user";
     $query = mysqli_query($koneksi, $sql);
     ?>
 
     <div>
         <h1>Data User</h1>
-        <form action="new-user.php" method="GET">
+        <form class="d-flex justify-content-center" action="new-user.php" method="GET">
             <button type="submit">Tambah</button>
         </form>
-        <table>
+        <table border="1">
             <tr>
                 <th>No.</th>
                 <th>Username</th>
@@ -82,7 +126,7 @@
                 <th>Diubah pada</th>
                 <th colspan="2">Aksi</th>
             </tr>
-
+            <!-- ambil (fetch) data user satu per satu, lalu tampilkan -->
             <?php $i = 1; ?>
             <?php while ($user = mysqli_fetch_array($query)) : ?>
                 <tr>
@@ -108,8 +152,8 @@
             <?php endwhile ?>
         </table>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // tampilkan konfirmasi sebelum hapus
         function konfirmasi(form) {
             formData = new FormData(form);
             id = formData.get("id");
@@ -117,5 +161,7 @@
         }
     </script>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

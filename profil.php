@@ -14,7 +14,7 @@
         .profile-container {
             width: 70%;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: transparent;
             padding: 20px;
             border-radius: 5px;
         }
@@ -24,7 +24,7 @@
         }
 
         table {
-            width: 110%;
+            width: 100%;
             border-collapse: collapse;
             color: white;
         }
@@ -72,13 +72,20 @@
         .profile-container {
             width: 50%;
             max-width: 500px;
-            /* Ukuran maksimum lebar form */
             margin: 0 auto;
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            /* Efek bayangan agar form terlihat menonjol */
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -97,6 +104,7 @@
     ?>
 
     <div class="profile-container">
+        <div class="profile-picture" style="background-image: url('path_to_your_image.jpg');"></div>
         <form action="update-profil.php" method="POST">
             <h1>Profil</h1>
 

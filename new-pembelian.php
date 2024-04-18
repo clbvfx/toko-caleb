@@ -4,14 +4,44 @@
 <head>
     <title>New Pembelian</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 5px 15px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <?php include "menu.php"; ?>
 
     <?php
-
-
     require "koneksi.php";
 
     $sql = "SELECT * FROM barang";
@@ -19,14 +49,13 @@
     ?>
 
     <div>
-
         <form action="create-pembelian.php" method="POST">
             <h1>Tambah Pembelian</h1>
             <table>
                 <tr>
                     <td>Barang</td>
                     <td>
-                        <select name="id_barang">
+                        <select name="id_barang" class="form-select">
                             <?php while ($barang = mysqli_fetch_array($query)) : ?>
                                 <option value='<?= $barang["id"] ?>'>
                                     <?= $barang["nama"] ?>, harga: <?= $barang["harga_beli"] ?>, stok: <?= $barang["stok"] ?>
@@ -37,12 +66,12 @@
                 </tr>
                 <tr>
                     <td>Jumlah</td>
-                    <td><input type="number" min="0" name="jumlah"></td>
+                    <td><input type="number" min="0" name="jumlah" class="form-control"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <button type="submit">SIMPAN</button>
-                        <button type="reset">RESET</button>
+                        <button type="submit" class="btn btn-primary">SIMPAN</button>
+                        <button type="reset" class="btn btn-secondary">RESET</button>
                     </td>
                 </tr>
             </table>

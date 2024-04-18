@@ -35,9 +35,10 @@
                 <tr>
                     <td>Kategori</td>
                     <td>
-                        <select name="Kategori">
-                            <option value="makanan" <?= $barang["kategori"] == "makanan" ? "selected" : "" ?>>makanan</option>
-                            <option value="minuman" <?= $barang["kategori"] == "minuman" ? "selected" : "" ?>>minuman</option>
+                        <select name="kategori">
+                            <option value="gaming" <?= $barang["kategori"] == "gaming" ? "selected" : "" ?>>GAMING</option>
+                            <option value="komersil" <?= $barang["kategori"] == "komersil" ? "selected" : "" ?>>KOMERSIL</option>
+                            <option value="editing" <?= $barang["kategori"] == "editing" ? "selected" : "" ?>>EDITING</option>
                         </select>
                     </td>
                 </tr>

@@ -2,25 +2,34 @@
 
 require "koneksi.php";
 
-// id, new_password, confirm_password diambil dari profil.php
-$id = $_POST["id"];
-// hapus (trim) karakter spasi dari password baru
-$new_password = trim($_POST["new_password"]);
-$confirm_password = trim($_POST["confirm_password"]);
+session_start();
 
-// bandingkan (strcmp) new password dan konfirmasinya
-if (strcmp($new_password, $confirm_password) != 0) {
-    echo "Password baru dan konfirmasinya tidak sama";
+if ($_POST["id"] == $_SESSION["id"]) {
+    echo "Tidak bisa edit user yang sedang aktif";
     exit;
 }
 
-$password = password_hash($new_password, PASSWORD_DEFAULT);
+// id, username, password, dan level diambil dari read-user.php
+$id = $_POST["id"];
+$username = $_POST["username"];
+$level = $_POST["level"];
 
-$sql = "UPDATE user SET password = '$password' WHERE id = '$id'";
+// password diisi dulu dengan password sebelumnya
+$password = $_POST["old_password"];
+
+// hapus (trim) karakter spasi dari password baru
+$new_password = trim($_POST["password"]);
+if (strlen($new_password) > 0) {
+    // jika password baru tidak kosong, password di-encrypt
+    //lalu menimpa password sebelumnya
+    $password = password_hash($new_password, PASSWORD_DEFAULT);
+}
+
+$sql = "UPDATE user SET username = '$username', password = '$password', level = '$level' WHERE id = '$id'";
 mysqli_query($koneksi, $sql);
 
 if (mysqli_error($koneksi)) {
     echo mysqli_error($koneksi);
 } else {
-    header("location: home.php");
+    header("location: user.php");
 }
