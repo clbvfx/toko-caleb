@@ -6,22 +6,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            padding-top: 60px;
-            /* Untuk memberi ruang pada navbar */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
+            padding: 20px;
         }
 
         form {
-            width: 50%;
-            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
             background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
         }
 
         table {
@@ -33,6 +31,7 @@
         }
 
         button {
+            width: 100%;
             padding: 5px 15px;
             margin-top: 10px;
         }

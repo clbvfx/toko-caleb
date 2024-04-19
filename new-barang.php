@@ -39,8 +39,9 @@
                     <td>Kategori</td>
                     <td>
                         <select name="kategori" class="form-select">
-                            <option value="makanan">makanan</option>
-                            <option value="minuman">minuman</option>
+                            <option value="gaming">GAMING</option>
+                            <option value="komersil">KOMERSIL</option>
+                            <option value="editing">EDITING</option>
                         </select>
                     </td>
                 </tr>

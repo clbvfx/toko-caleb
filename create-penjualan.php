@@ -20,7 +20,7 @@ $total_harga = $jumlah * $barang["harga_jual"];
 
 $id_staff = $_SESSION["id"];
 
-$sql = "INSERT INTO penjualan (id_barang, jumlah, total_harga, id_staff) VALUES ('$id_barang', '$jumlah', '$total_harga', '$id_staff')";
+$sql = "INSERT INTO penjualan (id_barang, jumlah, total_harga, id_staff, id_pelanggans) VALUES ('$id_barang', '$jumlah', '$total_harga', '$id_staff')";
 mysqli_query($koneksi, $sql);
 
 $sql = "UPDATE barang SET stok = stok - $jumlah WHERE id = '$id_barang'";
